@@ -20,6 +20,6 @@ public class Ejemplo01 {
         }
 
         // Output
-        System.out.println("El valor absoluto es: " + numero);
+        System.out.println("El valor absoluto es: " + numero);  //sout
     }
 }
