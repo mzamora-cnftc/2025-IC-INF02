@@ -41,5 +41,7 @@ public class Test {
         System.out.println("Hola, Mundo");
         Utils.pausar();
         Utils.reiniciarColores();  
+        char x = Utils.leerCaracter("Digite un caracter: ");
+        System.out.println(x);
     }
 }
