@@ -310,6 +310,52 @@ public class Utils {
         System.out.print("\033[37m");
     }
 
+    public static void pausar() {
+        System.out.println("Presione <Enter> para continuar...");
+        try {
+          System.in.read();
+        } catch (Exception e) {
+    
+        }
+      }
+
+    public static void reiniciarColores() {
+        System.out.print("\033[0m");
+    }
+
+    public static void establecerFondoColorBlanco() {
+        System.out.print("\033[47m");
+    }
+
+    public static void establecerFondoColorRojo() {
+        System.out.print("\033[41m");
+    }
+
+    public static void establecerFondoColorVerde() {
+        System.out.print("\033[42m");
+    }
+
+    public static void establecerFondoColorAmarillo() {
+        System.out.print("\033[43m");
+    }
+
+    public static void establecerFondoColorAzul() {
+        System.out.print("\033[44m");
+    }
+
+    public static void establecerFondoColorMangenta() {
+        System.out.print("\033[45m");
+    }
+
+    public static void establecerFondoColorCian() {
+        System.out.print("\033[46m");
+    }
+
+    public static void establecerFondoColorNegro() {
+        System.out.print("\033[40m");
+    }
+
+
 }
 
 enum Fondo {
