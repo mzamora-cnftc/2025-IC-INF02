@@ -110,6 +110,31 @@ public class Utils {
     }
 
     /**
+     * Este método permite la lectura de un caracter (texto).
+     * Si el usuario digite más de un caracter, toma el primero.
+     * NO PUEDE LEER ESPACIOS EN BLANCO, DADO QUE LIMPIA TODOS LOS ESPACIOS.
+     * 
+     * @param texto Es el texto utilizado como etiqueta para que el usuario sepa que
+     *              se le solicita.
+     *              Si no desea imprimir una etiqueta, coloque "".
+     * @return char (caracter) digitado por el usuario.
+     */
+    public static char leerCaracter(String texto) {
+        String resultado = null;
+        out.print(texto);
+
+        try {
+            resultado = in.readLine();
+
+        } catch (Exception e) {
+        }
+
+        char salida = resultado.trim().charAt(0);
+
+        return salida;
+    }
+
+    /**
      * Este método leer un boolean (true/false), para esto se hace una pregunta de
      * tipo Si y NO,
      * si el usuario escribe un Si, el sistema devuelve un true, el usuario escoge
@@ -257,26 +282,34 @@ public class Utils {
         return (int) Math.round(Math.random() * n);
     }
 
-    /**
-     * Establece el color del a fuente
-     * @param color Color a establecer la fuente
-     */
-    public static void establecerColor(Color color) {
-        System.out.print(color);
+    static void establecerColorRojo() {
+        System.out.print("\033[31m");
     }
 
-    public static void establecerFondo(Fondo color) {
-        System.out.print(color);
+    static void establecerColorVerde() {
+        System.out.print("\033[32m");
     }
 
-    public static void establecerColores(Color color, Fondo fondo) {
-        System.out.print(color.getValor() + fondo.getValor());
+    static void establecerColorAmarillo() {
+        System.out.print("\033[33m");
     }
 
-    public static void reestablecerColores() {
-        System.out.print(Color.RESET.getValor() + Fondo.NEGRO_BACKGROUND.getValor());
-        System.out.println("");
+    static void establecerColorAzul() {
+        System.out.print("\033[34m");
     }
+
+    static void establecerColorMangenta() {
+        System.out.print("\033[35m");
+    }
+
+    static void establecerColorCian() {
+        System.out.print("\033[36m");
+    }
+
+    static void establecerColorBlanco() {
+        System.out.print("\033[37m");
+    }
+
 }
 
 enum Fondo {
