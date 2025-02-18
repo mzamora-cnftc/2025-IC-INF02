@@ -282,31 +282,31 @@ public class Utils {
         return (int) Math.round(Math.random() * n);
     }
 
-    static void establecerColorRojo() {
+    public static void establecerColorRojo() {
         System.out.print("\033[31m");
     }
 
-    static void establecerColorVerde() {
+    public static void establecerColorVerde() {
         System.out.print("\033[32m");
     }
 
-    static void establecerColorAmarillo() {
+    public static void establecerColorAmarillo() {
         System.out.print("\033[33m");
     }
 
-    static void establecerColorAzul() {
+    public static void establecerColorAzul() {
         System.out.print("\033[34m");
     }
 
-    static void establecerColorMangenta() {
+    public static void establecerColorMangenta() {
         System.out.print("\033[35m");
     }
 
-    static void establecerColorCian() {
+    public static void establecerColorCian() {
         System.out.print("\033[36m");
     }
 
-    static void establecerColorBlanco() {
+    public static void establecerColorBlanco() {
         System.out.print("\033[37m");
     }
 
