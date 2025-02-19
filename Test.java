@@ -21,6 +21,11 @@ public class Test {
         System.out.println("Hola, Mundo");
         Utils.establecerColorVerde();
         System.out.println("Hola, Mundo");
+        Utils.establecerColorAzul();
+        System.out.print("Hola ");
+        Utils.establecerColorMangenta();
+        System.out.println("Mundo!");
+
         Utils.pausar();
         Utils.reiniciarColores();
         Utils.limpiarConsola();
