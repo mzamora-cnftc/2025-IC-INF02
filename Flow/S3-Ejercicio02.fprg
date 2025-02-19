@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="mauri"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-02-06 07:40:39 "/>
+        <attribute name="created" value="bWF1cmk7QkxVRVBDOzIwMjUtMDItMDY7IjA3OjM3OjQyICI7MjE4MA=="/>
+        <attribute name="edited" value="bWF1cmk7QkxVRVBDOzIwMjUtMDItMDY7IjA3OjQwOjM5ICI7MjsyMjg5"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="numero" type="Integer" array="False" size=""/>
+            <output expression="&quot;Digite un n&#250;mero: &quot;" newline="True"/>
+            <input variable="numero"/>
+            <if expression="numero &gt;= 0">
+                <then>
+                    <output expression="&quot;El n&#250;mero &quot; &amp; numero &amp; &quot; es positivo&quot;" newline="True"/>
+                </then>
+                <else>
+                    <output expression="&quot;El n&#250;mero &quot; &amp; numero &amp; &quot; es negativo&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

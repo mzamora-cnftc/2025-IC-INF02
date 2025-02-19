@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="mauri"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-02-13 08:09:55 "/>
+        <attribute name="created" value="bWF1cmk7QkxVRVBDOzIwMjUtMDItMTM7IjA4OjA2OjAwICI7MjE2OQ=="/>
+        <attribute name="edited" value="bWF1cmk7QkxVRVBDOzIwMjUtMDItMTM7IjA4OjA5OjE5ICI7MTttYXVyaTtCTFVFUEM7MjAyNS0wMi0xMzsiMDY6NTQ6MDYgIjtTNC1FamVtcGxvMDEuZnByZzs2MDU0"/>
+        <attribute name="edited" value="bWF1cmk7QkxVRVBDOzIwMjUtMDItMTM7IjA4OjA5OjU1ICI7MTsyMjkw"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="ladoA, ladoB, ladoC" type="Real" array="False" size=""/>
+            <output expression="&quot;Digite los tres lados del triangulo: &quot;" newline="True"/>
+            <input variable="ladoA"/>
+            <input variable="ladoB"/>
+            <input variable="ladoC"/>
+            <if expression="(ladoA + ladoB &gt; ladoC)&amp;&amp;(ladoA + ladoC &gt; ladoB)&amp;&amp;(ladoB + ladoC &gt; ladoA)">
+                <then>
+                    <output expression="&quot;Es un triangulo&quot;" newline="True"/>
+                </then>
+                <else>
+                    <output expression="&quot;NO es un triangulo&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

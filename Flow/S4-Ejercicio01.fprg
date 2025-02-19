@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="mauri"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-02-18 06:38:36 "/>
+        <attribute name="created" value="bWF1cmk7QkxVRVBDOzIwMjUtMDItMTg7IjA2OjIxOjIwICI7MjE3MQ=="/>
+        <attribute name="edited" value="bWF1cmk7QkxVRVBDOzIwMjUtMDItMTg7IjA2OjM4OjM2ICI7MTsyMjk0"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="dia, mes, anno, diaSiguiente, mesSiguiente, annoSiguiente, ultimoDia" type="Integer" array="False" size=""/>
+            <comment text="Entradas&#13;&#10;"/>
+            <output expression="&quot;Digite el d&#237;a, mes y a&#241;o&quot;" newline="True"/>
+            <input variable="dia"/>
+            <input variable="mes"/>
+            <input variable="anno"/>
+            <comment text="Primera validaci&#243;n - Mes"/>
+            <if expression="mes &gt;= 1 &amp;&amp; mes &lt;= 12">
+                <then>
+                    <comment text="El n&#250;mero de mes correcto"/>
+                    <if expression="mes ==  2">
+                        <then>
+                            <assign variable="ultimoDia" expression="28"/>
+                        </then>
+                        <else>
+                            <if expression="mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12">
+                                <then>
+                                    <assign variable="ultimoDia" expression="31"/>
+                                </then>
+                                <else>
+                                    <assign variable="ultimoDia" expression="30"/>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                    <comment text="Dado que conocemos que el mes es correcto y el &#250;ltimo del d&#237;a del mes, vamos a validar el d&#237;a"/>
+                    <if expression="dia &gt;= 1 &amp;&amp; dia &lt;= ultimoDia">
+                        <then>
+                            <comment text="Sabemos que el mes y d&#237;a son correctos"/>
+                            <if expression="dia == ultimoDia">
+                                <then>
+                                    <if expression="mes == 12">
+                                        <then>
+                                            <assign variable="diaSiguiente" expression="1"/>
+                                            <assign variable="mesSiguiente" expression="1"/>
+                                            <assign variable="annoSiguiente" expression="anno + 1"/>
+                                        </then>
+                                        <else>
+                                            <assign variable="diaSiguiente" expression="1"/>
+                                            <assign variable="mesSiguiente" expression="mes + 1"/>
+                                            <assign variable="annoSiguiente" expression="anno"/>
+                                        </else>
+                                    </if>
+                                </then>
+                                <else>
+                                    <assign variable="diaSiguiente" expression="dia + 1"/>
+                                    <assign variable="mesSiguiente" expression="mes"/>
+                                    <assign variable="annoSiguiente" expression="anno"/>
+                                </else>
+                            </if>
+                            <output expression="&quot;Fecha siguiente: &quot; &amp; diaSiguiente &amp; &quot;/&quot; &amp; mesSiguiente &amp; &quot;/&quot; &amp; annoSiguiente" newline="True"/>
+                        </then>
+                        <else>
+                            <output expression="&quot;No se puede determinar la fecha, debido a que el d&#237;a es incorrecto&quot;" newline="True"/>
+                        </else>
+                    </if>
+                </then>
+                <else>
+                    <output expression="&quot;No se puede determinar la fecha, debido a que el mes es incorrecto&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

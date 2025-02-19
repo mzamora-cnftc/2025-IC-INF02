@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="mauri"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-02-11 06:36:16 "/>
+        <attribute name="created" value="bWF1cmk7QkxVRVBDOzIwMjUtMDItMTE7IjA1OjU4OjQzICI7MjE3OA=="/>
+        <attribute name="edited" value="bWF1cmk7QkxVRVBDOzIwMjUtMDItMTE7IjA2OjM2OjE2ICI7MjsyMjg0"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="horaEntrada, horaSalida, horasTrabajadas, horasExtra, tarifa, salario" type="Integer" array="False" size=""/>
+            <comment text="Pedi los datos de entrada al usuario"/>
+            <output expression="&quot;Hora de entrada: &quot;" newline="True"/>
+            <input variable="horaEntrada"/>
+            <output expression="&quot;Hora de salida: &quot;" newline="True"/>
+            <input variable="horaSalida"/>
+            <output expression="&quot;Digite la tarifa por hora: &quot;" newline="True"/>
+            <input variable="tarifa"/>
+            <comment text="Proceso"/>
+            <assign variable="horasTrabajadas" expression="horaSalida - horaEntrada"/>
+            <if expression="horasTrabajadas &gt; 8">
+                <then>
+                    <comment text="Ac&#225; se calcula el monto con horas extra"/>
+                    <assign variable="horasExtra" expression="horasTrabajadas - 8"/>
+                    <assign variable="horasTrabajadas" expression="8"/>
+                </then>
+                <else>
+                    <assign variable="horasExtra" expression="0"/>
+                </else>
+            </if>
+            <comment text="Las horas trabajadas, ser&#225;n solo las horas de tarifa normal (sin incluir extras)"/>
+            <assign variable="salario" expression="tarifa * horasTrabajadas + tarifa * 1.5 * horasExtra"/>
+            <comment text="Salida al usuario"/>
+            <output expression="&quot;Salario es: &quot; &amp; salario" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

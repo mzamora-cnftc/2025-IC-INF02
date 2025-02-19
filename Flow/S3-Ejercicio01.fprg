@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="mauri"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-02-06 07:37:39 "/>
+        <attribute name="created" value="bWF1cmk7QkxVRVBDOzIwMjUtMDItMDY7IjA2OjQ1OjU3ICI7MjE4NA=="/>
+        <attribute name="edited" value="bWF1cmk7QkxVRVBDOzIwMjUtMDItMDY7IjA3OjM3OjM5ICI7MTsyMjk0"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="numero" type="Integer" array="False" size=""/>
+            <output expression="&quot;Digite un n&#250;mero para evaluar: &quot;" newline="True"/>
+            <input variable="numero"/>
+            <if expression="numero &lt; 0">
+                <then>
+                    <assign variable="numero" expression="numero * -1"/>
+                </then>
+                <else/>
+            </if>
+            <output expression="&quot;El valor absoluto es: &quot; &amp; numero" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="mauri"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-01-30 07:37:39 "/>
+        <attribute name="created" value="bWF1cmk7QkxVRVBDOzIwMjUtMDEtMzA7IjA3OjI3OjU1ICI7MjE3OQ=="/>
+        <attribute name="edited" value="bWF1cmk7QkxVRVBDOzIwMjUtMDEtMzA7IjA3OjM3OjM5ICI7MjsyMjkx"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <comment text="Declaraci&#243;n de variables&#13;&#10;"/>
+            <declare name="numero1" type="Integer" array="False" size=""/>
+            <declare name="numero2" type="Integer" array="False" size=""/>
+            <declare name="numero3" type="Integer" array="False" size=""/>
+            <declare name="suma" type="Integer" array="False" size=""/>
+            <declare name="multiplicacion" type="Integer" array="False" size=""/>
+            <comment text="Input"/>
+            <output expression="&quot;Digite el n&#250;mero 1: &quot;" newline="True"/>
+            <input variable="numero1"/>
+            <output expression="&quot;Digite el n&#250;mero 2: &quot;" newline="True"/>
+            <input variable="numero2"/>
+            <output expression="&quot;Digite el n&#250;mero 3: &quot;" newline="True"/>
+            <input variable="numero3"/>
+            <comment text="Process"/>
+            <assign variable="suma" expression="numero1 + numero2 + numero3"/>
+            <assign variable="multiplicacion" expression="numero1 * numero2 * numero3"/>
+            <comment text="Out"/>
+            <output expression="&quot;Suma es: &quot; &amp; suma" newline="True"/>
+            <output expression="&quot;Multiplicaci&#243;n es: &quot; &amp; multiplicacion" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
