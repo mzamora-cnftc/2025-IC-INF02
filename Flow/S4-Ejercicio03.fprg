@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="mauri"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-02-18 08:07:34 "/>
+        <attribute name="created" value="bWF1cmk7QkxVRVBDOzIwMjUtMDItMTg7IjA3OjQwOjAwICI7MjE3MQ=="/>
+        <attribute name="edited" value="bWF1cmk7QkxVRVBDOzIwMjUtMDItMTg7IjA4OjA3OjM0ICI7NTsyMjk0"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="nota1, nota2, nota3, nota4, promedio" type="Real" array="False" size=""/>
+            <declare name="fueAsistente, aproboTodasMateria, todasMateriasSuperior80, tieneDerechoBeca, fueAsistenciaNoC" type="Boolean" array="False" size=""/>
+            <declare name="notaAsistencia" type="String" array="False" size=""/>
+            <comment text="Entradas&#13;&#10;"/>
+            <output expression="&quot;Digite las cuatro notas: &quot;" newline="True"/>
+            <input variable="nota1"/>
+            <input variable="nota2"/>
+            <input variable="nota3"/>
+            <input variable="nota4"/>
+            <output expression="&quot;&#191;Fue asistente?&quot;" newline="True"/>
+            <input variable="fueAsistente"/>
+            <if expression="fueAsistente">
+                <then>
+                    <output expression="&quot;Digite la nota: [a, b, c] &quot;" newline="True"/>
+                    <input variable="notaAsistencia"/>
+                </then>
+                <else>
+                    <assign variable="notaAsistencia" expression="&quot;&quot;"/>
+                </else>
+            </if>
+            <comment text="Procesamiento"/>
+            <assign variable="promedio" expression="(nota1 + nota2 + nota3 + nota4) / 4"/>
+            <assign variable="aproboTodasMateria" expression="nota1 &gt;= 70 &amp;&amp; nota2 &gt;= 70 &amp;&amp; nota3 &gt;= 70 &amp;&amp; nota4 &gt;= 70"/>
+            <assign variable="todasMateriasSuperior80" expression="nota1 &gt;= 80 &amp;&amp; nota2 &gt;= 80 &amp;&amp; nota3 &gt;= 80 &amp;&amp; nota4 &gt;= 80"/>
+            <assign variable="fueAsistenciaNoC" expression="(!fueAsistente  || (fueAsistente &amp;&amp; !(notaAsistencia == &quot;c&quot;)))"/>
+            <assign variable="tieneDerechoBeca" expression="aproboTodasMateria &amp;&amp; fueAsistenciaNoC &amp;&amp; (&#13;&#10;(promedio &gt;= 90 &amp;&amp; todasMateriasSuperior80)&#13;&#10;||&#13;&#10;(promedio &gt;= 85 &amp;&amp; fueAsistente &amp;&amp; (notaAsistencia == &quot;a&quot; || notaAsistencia == &quot;b&quot;))&#13;&#10;)"/>
+            <output expression="tieneDerechoBeca" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
