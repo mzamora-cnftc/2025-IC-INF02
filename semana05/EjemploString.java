@@ -5,8 +5,13 @@ import generico.Utils;
 public class EjemploString {
 
     public static void main(String[] args) {
-        String compañera1 = "Abigail", compañera2 = "  María    Alexandra  ", compañero1 = "cristopher", compañero2 = "Daniel";
+        String compañera1 = "Abigail", compañera2 = "  María    Alexandra  ", compañero1 = "cristopher",
+                compañero2 = "Daniel";
         String sinNada = null;
+
+        int x = 10;
+        double y = 20.3;
+        char c = 'a';
 
         Utils.limpiarConsola();
 
@@ -21,7 +26,7 @@ public class EjemploString {
         compañera2 = compañera2.trim();
         System.out.println(compañera2);
 
-        //if (compañero1 == "cristopher")  /NO HACER ESTO PARA COMPARAR EL VALOR
+        // if (compañero1 == "cristopher") /NO HACER ESTO PARA COMPARAR EL VALOR
         if (compañero1.equals("Cristopher")) {
             System.out.println("Son iguales");
         } else {
@@ -32,7 +37,7 @@ public class EjemploString {
             System.out.println("Son iguales");
         } else {
             System.out.println("No son iguales");
-            
+
         }
 
         if ("hola".equals(sinNada)) {
