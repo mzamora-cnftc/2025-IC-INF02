@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="mauri"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-02-25 07:24:57 "/>
+        <attribute name="created" value="bWF1cmk7QkxVRVBDOzIwMjUtMDItMjU7IjA3OjEyOjAwICI7MjE2OA=="/>
+        <attribute name="edited" value="bWF1cmk7QkxVRVBDOzIwMjUtMDItMjU7IjA3OjI0OjU3ICI7MTsyMjkx"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="contador, acumulador, numero, limite" type="Integer" array="False" size=""/>
+            <declare name="promedio" type="Real" array="False" size=""/>
+            <output expression="&quot;Digite la cantidad de elementos: &quot;" newline="True"/>
+            <input variable="limite"/>
+            <assign variable="acumulador" expression="0"/>
+            <comment text="como en flowi llega hasta el &#250;ltimo limite inclusive, vamos a restar uno, en java NO hace falta"/>
+            <for variable="contador" start="0" end="limite-1" direction="inc" step="1">
+                <output expression="&quot;Digite el valor #&quot; &amp; (contador + 1) &amp; &quot;: &quot;" newline="True"/>
+                <input variable="numero"/>
+                <assign variable="acumulador" expression="acumulador + numero"/>
+            </for>
+            <assign variable="promedio" expression="acumulador / limite"/>
+            <output expression="promedio" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
