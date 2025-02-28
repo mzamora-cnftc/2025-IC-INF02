@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="mauri"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-02-27 07:16:13 "/>
+        <attribute name="created" value="bWF1cmk7QkxVRVBDOzIwMjUtMDItMjc7IjA2OjM5OjA1ICI7MjE4Mw=="/>
+        <attribute name="edited" value="bWF1cmk7QkxVRVBDOzIwMjUtMDItMjc7IjA3OjE2OjEzICI7MjsyMjg3"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="acumulador, limiteFactorial, i" type="Integer" array="False" size=""/>
+            <assign variable="acumulador" expression="1"/>
+            <output expression="&quot;Digite el l&#237;mite del factorial: &quot;" newline="True"/>
+            <input variable="limiteFactorial"/>
+            <for variable="i" start="1" end="limiteFactorial" direction="inc" step="1">
+                <assign variable="acumulador" expression="acumulador * i"/>
+            </for>
+            <output expression="acumulador &amp; toChar(13) &amp; &quot;salto&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
