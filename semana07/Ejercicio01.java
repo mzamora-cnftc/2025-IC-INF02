@@ -3,6 +3,7 @@ package semana07;
 import generico.Utils;
 
 public class Ejercicio01 {
+    
     public static void main(String[] args) {
         int n;
 
