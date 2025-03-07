@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="mauri"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-03-06 06:38:27 "/>
+        <attribute name="created" value="bWF1cmk7QkxVRVBDOzIwMjUtMDMtMDY7IjA2OjIxOjM2ICI7MjE3Ng=="/>
+        <attribute name="edited" value="bWF1cmk7QkxVRVBDOzIwMjUtMDMtMDY7IjA2OjM4OjI3ICI7MTsyMjky"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="numero, i" type="Integer" array="False" size=""/>
+            <declare name="esPrimo" type="Boolean" array="False" size=""/>
+            <output expression="&quot;Digite un n&#250;mero a evaluar: &quot;" newline="True"/>
+            <input variable="numero"/>
+            <assign variable="esPrimo" expression="True"/>
+            <assign variable="i" expression="2"/>
+            <if expression="numero &lt; 1">
+                <then>
+                    <output expression="&quot;No se puede evaluar&quot;" newline="True"/>
+                </then>
+                <else>
+                    <if expression="numero &gt;= 3">
+                        <then>
+                            <do expression="esPrimo &amp;&amp; i &lt; numero">
+                                <if expression="numero % i == 0">
+                                    <then>
+                                        <assign variable="esPrimo" expression="False"/>
+                                    </then>
+                                    <else/>
+                                </if>
+                                <assign variable="i" expression="i + 1"/>
+                            </do>
+                            <if expression="esPrimo">
+                                <then>
+                                    <output expression="&quot;Primo&quot;" newline="True"/>
+                                </then>
+                                <else>
+                                    <output expression="&quot;No es primo&quot;" newline="True"/>
+                                </else>
+                            </if>
+                        </then>
+                        <else>
+                            <if expression="numero == 1">
+                                <then>
+                                    <output expression="&quot;El 1 no es primo&quot;" newline="True"/>
+                                </then>
+                                <else>
+                                    <output expression="&quot;Es primo&quot;" newline="True"/>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
