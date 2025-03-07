@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="mauri"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-03-06 07:50:21 "/>
+        <attribute name="created" value="bWF1cmk7QkxVRVBDOzIwMjUtMDMtMDY7IjA3OjM3OjM3ICI7MjE4NQ=="/>
+        <attribute name="edited" value="bWF1cmk7QkxVRVBDOzIwMjUtMDMtMDY7IjA3OjUwOjIxICI7MTsyMjgx"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="a&#241;o" type="Integer" array="False" size=""/>
+            <declare name="esMultiplo4, esMultiplo100, esMultiplo400" type="Boolean" array="False" size=""/>
+            <output expression="&quot;Digite el a&#241;o: &quot;" newline="True"/>
+            <input variable="a&#241;o"/>
+            <while expression="a&#241;o &gt; 0">
+                <assign variable="esMultiplo4" expression="a&#241;o%4 == 0"/>
+                <assign variable="esMultiplo100" expression="a&#241;o%100 == 0"/>
+                <assign variable="esMultiplo400" expression="a&#241;o%400 == 0"/>
+                <if expression="(esMultiplo4 &amp;&amp;!esMultiplo100) || (esMultiplo4 &amp;&amp;esMultiplo400)">
+                    <then>
+                        <output expression="&quot;Bisiesto&quot;" newline="True"/>
+                    </then>
+                    <else>
+                        <output expression="&quot;No es bisiesto&quot;" newline="True"/>
+                    </else>
+                </if>
+                <if expression="esMultiplo4 &amp;&amp; (!esMultiplo100 ||esMultiplo400)">
+                    <then>
+                        <output expression="&quot;Bisiesto&quot;" newline="True"/>
+                    </then>
+                    <else>
+                        <output expression="&quot;No es bisiesto&quot;" newline="True"/>
+                    </else>
+                </if>
+                <output expression="&quot;Digite el a&#241;o: &quot;" newline="True"/>
+                <input variable="a&#241;o"/>
+            </while>
+        </body>
+    </function>
+</flowgorithm>
