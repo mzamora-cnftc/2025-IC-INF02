@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="mauri"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-03-14 06:14:10 "/>
+        <attribute name="created" value="bWF1cmk7QkxVRVBDOzIwMjQtMDMtMTM7IjA1OjEzOjQ3ICI7MjE3NQ=="/>
+        <attribute name="edited" value="bWF1cmk7QkxVRVBDOzIwMjQtMDMtMTQ7IjA2OjE0OjEwICI7MjM7MjMyOA=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="cantidadPapasCompradas, cantidadTotalPapas, cantidadPapasVendidas, costoTotal, ventasTotales, cantidadAulas, cantidadPisos, piso, aula, cantidad, opcion" type="Integer" array="False" size=""/>
+            <declare name="hayGuardas, haySiguiente" type="Boolean" array="False" size=""/>
+            <assign variable="ventasTotales" expression="0"/>
+            <assign variable="piso" expression="1"/>
+            <assign variable="hayGuardas" expression="False"/>
+            <assign variable="cantidadPapasVendidas" expression="0"/>
+            <assign variable="haySiguiente" expression="True"/>
+            <output expression="&quot;Digite la cantidad de papas que desea comprar al vendedor: &quot;" newline="True"/>
+            <input variable="cantidadPapasCompradas"/>
+            <output expression="&quot;Digite la cantidad de pisos: &quot;" newline="True"/>
+            <input variable="cantidadPisos"/>
+            <output expression="&quot;Digite la cantidad de aulas: &quot;" newline="True"/>
+            <input variable="cantidadAulas"/>
+            <assign variable="cantidadTotalPapas" expression="int(cantidadPapasCompradas/20)*4+cantidadPapasCompradas"/>
+            <assign variable="costoTotal" expression="cantidadPapasCompradas * 500"/>
+            <output expression="&quot;Cantidad de papas compradas: &quot; &amp; cantidadPapasCompradas" newline="True"/>
+            <output expression="&quot;Cantidad de papas para vender: &quot; &amp; cantidadTotalPapas" newline="True"/>
+            <while expression="piso &lt;= cantidadPisos and not hayGuardas and cantidadTotalPapas &gt; cantidadPapasVendidas">
+                <output expression="&quot;Piso #&quot; &amp; piso" newline="True"/>
+                <assign variable="aula" expression="1"/>
+                <while expression="aula &lt;= cantidadAulas and&#13;&#10;cantidadTotalPapas &gt; cantidadPapasVendidas">
+                    <output expression="&quot;Aula #&quot; &amp; aula" newline="True"/>
+                    <output expression="&quot;&#191;alguien quiere comprar?&quot;" newline="True"/>
+                    <input variable="haySiguiente"/>
+                    <while expression="haySiguiente and cantidadTotalPapas &gt; cantidadPapasVendidas">
+                        <do expression="not(opcion==1 or opcion==2)">
+                            <output expression="&quot;Digite 1 para comprar una papa tostada a 1000 y 2 para comprar dos pap&#225;s en 1500&quot;" newline="True"/>
+                            <input variable="opcion"/>
+                        </do>
+                        <if expression="1 == opcion">
+                            <then>
+                                <assign variable="cantidadPapasVendidas" expression="cantidadPapasVendidas + 1"/>
+                                <assign variable="ventasTotales" expression="ventasTotales + 1000"/>
+                            </then>
+                            <else>
+                                <assign variable="cantidadPapasVendidas" expression="cantidadPapasVendidas + 2"/>
+                                <assign variable="ventasTotales" expression="ventasTotales + 1500"/>
+                            </else>
+                        </if>
+                        <output expression="&quot;Total de papas vendidas: &quot; &amp; cantidadPapasVendidas" newline="True"/>
+                        <if expression="cantidadTotalPapas &gt; cantidadPapasVendidas">
+                            <then>
+                                <output expression="&quot;&#191;hay m&#225;s personas que quieran comprar?&quot;" newline="True"/>
+                                <input variable="haySiguiente"/>
+                            </then>
+                            <else>
+                                <assign variable="haySiguiente" expression="False"/>
+                            </else>
+                        </if>
+                    </while>
+                    <assign variable="aula" expression="aula + 1"/>
+                </while>
+                <assign variable="piso" expression="piso + 1"/>
+                <if expression="cantidadTotalPapas &gt; cantidadPapasVendidas">
+                    <then>
+                        <output expression="&quot;&#191;Hay guardas a la vista (True/False)?&quot;" newline="True"/>
+                        <input variable="hayGuardas"/>
+                    </then>
+                    <else/>
+                </if>
+            </while>
+            <output expression="&quot;Total de papas compradas: &quot; &amp; cantidadPapasCompradas" newline="True"/>
+            <output expression="&quot;Total de papas para vender: &quot; &amp; cantidadTotalPapas" newline="True"/>
+            <output expression="&quot;Total de papas vendidas: &quot; &amp; cantidadPapasVendidas" newline="True"/>
+            <output expression="&quot;Costo de papas compradas: &quot; &amp; (cantidadPapasCompradas * 500)" newline="True"/>
+            <output expression="&quot;Monto total vendido: &quot; &amp; ventasTotales" newline="True"/>
+            <output expression="&quot;Utilidad: &quot; &amp; (ventasTotales - costoTotal)" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
