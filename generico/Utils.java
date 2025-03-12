@@ -355,6 +355,21 @@ public class Utils {
         System.out.print("\033[40m");
     }
 
+    /**
+     * Esta función permite escribir archivos de texto
+     * @param nombreArchivo nombre del archivo, se recomienda poner .txt al final
+     * para que se guarde con la extensión de texto. Si no pone extensión, el 
+     * archivo se guarda sin esta y el sistema operativo no sabe con que asociarlo
+     * para abrirlo.
+     * @param contenido Es la variable que contiene el texto a escribir el archivo.
+     */
+    public static void escribirArchivo(String nombreArchivo, String contenido) {
+        try (PrintWriter escritor = new PrintWriter(nombreArchivo)) {
+            escritor.print(contenido);
+        } catch (IOException e) {
+            System.err.println("Error al escribir en el archivo: " + e.getMessage());
+        }
+    }
 
 }
 

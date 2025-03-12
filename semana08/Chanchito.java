@@ -44,6 +44,7 @@ public class Chanchito {
                     System.out.println("MOVIMIENTOS");
                     movimientos = movimientos + String.format("%-10s %10.2f %10.2f\n", "TOTALES", totalDepositos, totalRetiros);
                     System.out.println(movimientos);
+                    Utils.escribirArchivo("reporte.txt", movimientos);
                     System.out.printf("TOTAL FINAL ES DE %.2f\n",saldo);
                     Utils.pausar();
                     break;
