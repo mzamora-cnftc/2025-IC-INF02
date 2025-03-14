@@ -1,0 +1,20 @@
+Ejercicio: FTM en la búsqueda del Profe Maravilloso
+
+La Federación de Tica de Mejengas (FTM) está en la búsqueda de un nuevo entrenador para la selección mayor de fútbol debido a los malos resultados obtenidos. Para ello, evaluará a diferentes entrenadores en una serie de partidos contra equipos de cada barrio del país. Cada entrenador tendrá un máximo de 5 partidos para demostrar su valía, y se le asignará una calificación basada en su desempeño.
+
+Reglas de evaluación:
+
+Por cada partido ganado, se otorga 1 punto. Si se gana por más de 3 goles de diferencia, se otorga 1 punto adicional.
+
+En caso de empate, se asignan 0.5 puntos. Si el empate es 0-0, se restan 0.15 puntos. Si el empate es por 3 goles o más, se otorgan 0.15 puntos adicionales.
+
+Si el partido se pierde, se asignan 0.1 puntos. Si la derrota es por 2 o 3 goles, se restan 0.05 puntos. Si la derrota es por 4 goles o más, se restan 0.2 puntos.
+
+Condiciones adicionales:
+
+Si un entrenador pierde 3 partidos, no podrá continuar.
+
+Si pierde los primeros 2 partidos, tampoco podrá continuar.
+
+Objetivo:
+Desarrollar un programa que permita ingresar los resultados de los partidos de cada entrenador, calcule su puntuación final (en un rango de 0 a 100) y determine cuál es el mejor candidato para el puesto.
