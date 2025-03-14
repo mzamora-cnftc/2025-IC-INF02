@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="mauri"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-03-13 08:10:38 "/>
+        <attribute name="created" value="bWF1cmk7QkxVRVBDOzIwMjUtMDMtMTM7IjA2OjEyOjUxICI7MjE3MQ=="/>
+        <attribute name="edited" value="bWF1cmk7QkxVRVBDOzIwMjUtMDMtMTM7IjA4OjEwOjM4ICI7NDsyMjg3"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="capacidad, precioBoleto, edad, disponible, boletos" type="Integer" array="False" size=""/>
+            <declare name="cantidadBoletosVendidos" type="Integer" array="False" size=""/>
+            <declare name="esEstudiante, hayClientes" type="Boolean" array="False" size=""/>
+            <declare name="descuento, totalVentaBoletos" type="Real" array="False" size=""/>
+            <assign variable="cantidadBoletosVendidos" expression="0"/>
+            <assign variable="totalVentaBoletos" expression="0"/>
+            <output expression="&quot;Digite la cantidad de personas en el cine: &quot;" newline="True"/>
+            <input variable="capacidad"/>
+            <output expression="&quot;Digite el costo del boleto: &quot;" newline="True"/>
+            <input variable="precioBoleto"/>
+            <assign variable="disponible" expression="capacidad"/>
+            <output expression="&quot;&#191;Hay clientes?&quot;" newline="True"/>
+            <input variable="hayClientes"/>
+            <while expression="hayClientes AND disponible &gt; 0">
+                <output expression="&quot;Welcome&quot;" newline="True"/>
+                <do expression="not(boletos &gt;= 1 AND boletos &lt;= disponible)">
+                    <output expression="&quot;Digite la cantidad de boletos entre 1 y &quot; &amp; disponible" newline="True"/>
+                    <input variable="boletos"/>
+                </do>
+                <output expression="&quot;&#191;Su edad?&quot;" newline="True"/>
+                <input variable="edad"/>
+                <if expression="edad &lt; 18">
+                    <then>
+                        <output expression="&quot;&#191;Es estudiante?&quot;" newline="True"/>
+                        <input variable="esEstudiante"/>
+                    </then>
+                    <else>
+                        <assign variable="esEstudiante" expression="False"/>
+                    </else>
+                </if>
+                <if expression="edad &lt; 18 AND esEstudiante">
+                    <then>
+                        <assign variable="descuento" expression="0.10"/>
+                    </then>
+                    <else>
+                        <if expression="edad &gt;= 60">
+                            <then>
+                                <assign variable="descuento" expression="0.20"/>
+                            </then>
+                            <else>
+                                <assign variable="descuento" expression="0"/>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+                <assign variable="cantidadBoletosVendidos" expression="cantidadBoletosVendidos + boletos"/>
+                <assign variable="disponible" expression="capacidad - cantidadBoletosVendidos"/>
+                <assign variable="totalVentaBoletos" expression="totalVentaBoletos + (boletos * precioBoleto* (1-descuento))"/>
+                <output expression="&quot;&#191;Hay clientes?&quot;" newline="True"/>
+                <input variable="hayClientes"/>
+            </while>
+            <output expression="&quot;Cantidad de boletos vendidos: &quot; &amp; cantidadBoletosVendidos" newline="True"/>
+            <output expression="&quot;Monto total de boletos vendidos: &quot; &amp; totalVentaBoletos" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
