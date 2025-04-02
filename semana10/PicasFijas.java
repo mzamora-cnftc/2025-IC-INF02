@@ -70,18 +70,29 @@ public class PicasFijas {
         return numero;
     }
 
+
+    public static void jugar() {
+        int numero, numeroSecreto, intentos=0;
+        numeroSecreto = generarNumeroValidoAleatorio();
+        do {
+            intentos++;
+            System.out.println("Intento: "+intentos);
+            numero = Utils.leerEntero("Digite el número: ");
+            if(numero == numeroSecreto) {
+                System.out.println("Felicidades ha ganado");
+            } else {
+                System.out.println("Picas: " + contarPicas(numero, numeroSecreto));
+                System.out.println("Fijas: " + contarFijas(numero, numeroSecreto));
+            }
+
+        } while (numero != numeroSecreto && intentos < 5);
+        System.out.println("Número secreto: " + numeroSecreto);
+    }
+
     public static void main(String[] args) {
-        // System.out.println(esUnNumeroValido(1492));
-        // System.out.println(esUnNumeroValido(2025));
-        // System.out.println(esUnNumeroValido(1987));
-        // System.out.println(esUnNumeroValido(1991));
+        Utils.limpiarConsola();
+        jugar();
+        System.out.println("Hasta la vista, baby!");
 
-        // for (int i = 0; i < 10; i++) {
-        //     System.out.println(generarNumeroValidoAleatorio());
-        // }
-
-        System.out.println(obtenerPosicionNumerica(1896, 2));
-        System.out.println(contarFijas(1274, 5174));
-        System.out.println(contarPicas(1274, 5174));
     }
 }
