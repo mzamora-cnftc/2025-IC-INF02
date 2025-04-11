@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value="DSC&#225;lculo de salarios con impuesto sobre la renta"/>
+        <attribute name="authors" value="USER"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-04-10 06:56:52 "/>
+        <attribute name="created" value="VVNFUjtTVEVWRU47MjAyNS0wNC0wOTsxMDo0MDo1MSBBTTsyMDUw"/>
+        <attribute name="edited" value="VVNFUjtTVEVWRU47MjAyNS0wNC0xMDswNjoxNDoxMiBQTTs1OzIxNzI="/>
+        <attribute name="edited" value="bWF1cmk7QkxVRVBDOzIwMjUtMDQtMTA7IjA2OjQwOjIxICI7MTttYXVyaTtCTFVFUEM7MjAyNS0wNC0wODsiMDY6MjM6MzggIjtTMTEtZWplbXBsby5mcHJnOzYwMjc="/>
+        <attribute name="edited" value="bWF1cmk7QkxVRVBDOzIwMjUtMDQtMTA7IjA2OjU2OjUyICI7NTsyMjkw"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="empleados, i, n" type="Real" array="False" size=""/>
+            <declare name="limiteExoneracion, porcentajeExoneracion, resultado" type="Real" array="False" size=""/>
+            <output expression="&quot;Digite la cantidad de empleados: &quot;" newline="True"/>
+            <input variable="n"/>
+            <output expression="&quot;Ingrese el limite de exoneracion: &quot;" newline="True"/>
+            <input variable="limiteExoneracion"/>
+            <output expression="&quot;Ingrese el porcentaje de exoneracion: &quot;" newline="True"/>
+            <input variable="porcentajeExoneracion"/>
+            <declare name="salarioBrutosEmpleados, salarioNetosEmpleados" type="Real" array="True" size="n"/>
+            <declare name="empleadosNombres" type="String" array="True" size="n"/>
+            <call expression="leerDatosEmpleados(empleadosNombres, salarioBrutosEmpleados)"/>
+            <call expression="procesarLimitesImpuesto(salarioBrutosEmpleados, salarioNetosEmpleados, limiteExoneracion, porcentajeExoneracion)"/>
+            <call expression="imprimirDatosEmpleados(empleadosNombres, salarioBrutosEmpleados, salarioNetosEmpleados)"/>
+        </body>
+    </function>
+    <function name="leerDatosEmpleados" type="None" variable="">
+        <parameters>
+            <parameter name="nombresEmpleados" type="String" array="True"/>
+            <parameter name="salariosEmpleados" type="Real" array="True"/>
+        </parameters>
+        <body>
+            <declare name="nombre" type="String" array="False" size=""/>
+            <declare name="salarios" type="Real" array="False" size=""/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <for variable="i" start="0" end="Size(nombresEmpleados)-1" direction="inc" step="1">
+                <output expression="&quot;Escriba el nombre del empleado  &quot; &amp;i + 1&amp; &quot;: &quot;" newline="True"/>
+                <input variable="nombre"/>
+                <assign variable="nombresEmpleados[i]" expression="nombre"/>
+                <output expression="&quot;Digite el salario del empleado &quot; &amp;i + 1&amp; &quot;: &quot;" newline="True"/>
+                <input variable="salarios"/>
+                <assign variable="salariosEmpleados[i]" expression="salarios"/>
+            </for>
+        </body>
+    </function>
+    <function name="imprimirDatosEmpleados" type="None" variable="">
+        <parameters>
+            <parameter name="nombresEmpleados" type="String" array="True"/>
+            <parameter name="salariosEmpleados" type="Real" array="True"/>
+            <parameter name="salariosNetos" type="Real" array="True"/>
+        </parameters>
+        <body>
+            <output expression="&quot;Reporte final&quot;" newline="True"/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <for variable="i" start="0" end="Size(nombresEmpleados)-1" direction="inc" step="1">
+                <output expression="nombresEmpleados[i]" newline="False"/>
+                <output expression="salariosEmpleados[i]" newline="False"/>
+                <output expression="salariosNetos[i]" newline="True"/>
+            </for>
+            <output expression="&quot;Total es: &quot; &amp; sumarArregloReal(salariosNetos)" newline="True"/>
+        </body>
+    </function>
+    <function name="procesarLimitesImpuesto" type="None" variable="">
+        <parameters>
+            <parameter name="salariosEmpleados" type="Real" array="True"/>
+            <parameter name="salariosNetos" type="Real" array="True"/>
+            <parameter name="limite" type="Real" array="False"/>
+            <parameter name="impuesto" type="Real" array="False"/>
+        </parameters>
+        <body>
+            <declare name="excedente, montoImpuesto" type="Real" array="False" size=""/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <for variable="i" start="0" end="Size(salariosEmpleados)-1" direction="inc" step="1">
+                <if expression="salariosEmpleados[i] &gt; limite">
+                    <then>
+                        <assign variable="excedente" expression="salariosEmpleados[i] - limite"/>
+                        <assign variable="montoImpuesto" expression="excedente * impuesto"/>
+                        <assign variable="salariosNetos[i]" expression="salariosEmpleados[i] - montoImpuesto"/>
+                    </then>
+                    <else>
+                        <assign variable="salariosNetos[i]" expression="salariosEmpleados[i]"/>
+                    </else>
+                </if>
+            </for>
+        </body>
+    </function>
+    <function name="sumarArregloReal" type="Real" variable="total">
+        <parameters>
+            <parameter name="arreglo" type="Real" array="True"/>
+        </parameters>
+        <body>
+            <declare name="total" type="Real" array="False" size=""/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <assign variable="total" expression="0"/>
+            <for variable="i" start="0" end="Size(arreglo)-1" direction="inc" step="1">
+                <assign variable="total" expression="total + arreglo[i]"/>
+            </for>
+        </body>
+    </function>
+</flowgorithm>

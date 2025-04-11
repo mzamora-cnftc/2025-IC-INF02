@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="mauri"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-04-08 07:53:30 "/>
+        <attribute name="created" value="bWF1cmk7QkxVRVBDOzIwMjUtMDQtMDg7IjA2OjIzOjM4ICI7MjE4Mw=="/>
+        <attribute name="edited" value="bWF1cmk7QkxVRVBDOzIwMjUtMDQtMDg7IjA3OjUzOjMwICI7MjsyMjg4"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="cantidad, i, edad, suma" type="Integer" array="False" size=""/>
+            <declare name="promedio, de" type="Real" array="False" size=""/>
+            <output expression="&quot;Digite la cantidad de personas: &quot;" newline="True"/>
+            <input variable="cantidad"/>
+            <declare name="edades" type="Integer" array="True" size="cantidad"/>
+            <call expression="llenarArreglo(edades, &quot;Digite la edad: &quot;)"/>
+            <assign variable="suma" expression="sumarArreglo(edades)"/>
+            <output expression="suma" newline="True"/>
+            <assign variable="promedio" expression="calcularPromedio(edades)"/>
+            <output expression="promedio" newline="True"/>
+            <assign variable="de" expression="calcularDesviacionEstandar(edades)"/>
+            <output expression="de" newline="True"/>
+        </body>
+    </function>
+    <function name="calcularDesviacionEstandar" type="Real" variable="desvest">
+        <parameters>
+            <parameter name="arreglo" type="Integer" array="True"/>
+        </parameters>
+        <body>
+            <declare name="desvest" type="Real" array="False" size=""/>
+            <declare name="promedio" type="Real" array="False" size=""/>
+            <declare name="diferencias" type="Real" array="True" size="Size(arreglo)"/>
+            <assign variable="promedio" expression="calcularPromedio(arreglo)"/>
+            <call expression="calcularDiferenciaArregloValor(arreglo, promedio, diferencias)"/>
+            <call expression="elevarAlCuadrado(diferencias)"/>
+            <assign variable="desvest" expression="sumarArregloReal(diferencias)/Size(diferencias)"/>
+        </body>
+    </function>
+    <function name="calcularDiferenciaArregloValor" type="None" variable="">
+        <parameters>
+            <parameter name="arreglo" type="Integer" array="True"/>
+            <parameter name="diferencia" type="Real" array="False"/>
+            <parameter name="salida" type="Real" array="True"/>
+        </parameters>
+        <body>
+            <comment text="los dos arreglos deben ser del mismo tama&#241;o"/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <for variable="i" start="0" end="Size(arreglo)-1" direction="inc" step="1">
+                <assign variable="salida[i]" expression="diferencia - arreglo[i]"/>
+            </for>
+        </body>
+    </function>
+    <function name="calcularPromedio" type="Real" variable="promedio">
+        <parameters>
+            <parameter name="arreglo" type="Integer" array="True"/>
+        </parameters>
+        <body>
+            <declare name="promedio" type="Real" array="False" size=""/>
+            <assign variable="promedio" expression="sumarArreglo(arreglo) / Size(arreglo)"/>
+        </body>
+    </function>
+    <function name="elevarAlCuadrado" type="None" variable="">
+        <parameters>
+            <parameter name="arreglo" type="Real" array="True"/>
+        </parameters>
+        <body>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <for variable="i" start="0" end="size(arreglo)-1" direction="inc" step="1">
+                <assign variable="arreglo[i]" expression="arreglo[i] * arreglo[i]"/>
+            </for>
+        </body>
+    </function>
+    <function name="llenarArreglo" type="None" variable="">
+        <parameters>
+            <parameter name="arreglo" type="Integer" array="True"/>
+            <parameter name="etiqueta" type="String" array="False"/>
+        </parameters>
+        <body>
+            <declare name="valor, i" type="Integer" array="False" size=""/>
+            <for variable="i" start="0" end="Size(arreglo)-1" direction="inc" step="1">
+                <output expression="etiqueta" newline="True"/>
+                <input variable="valor"/>
+                <assign variable="arreglo[i]" expression="valor"/>
+            </for>
+        </body>
+    </function>
+    <function name="sumarArreglo" type="Integer" variable="total">
+        <parameters>
+            <parameter name="arreglo" type="Integer" array="True"/>
+        </parameters>
+        <body>
+            <declare name="total" type="Integer" array="False" size=""/>
+            <declare name="valor, i" type="Integer" array="False" size=""/>
+            <assign variable="total" expression="0"/>
+            <for variable="i" start="0" end="Size(arreglo)-1" direction="inc" step="1">
+                <assign variable="total" expression="total + arreglo[i]"/>
+            </for>
+        </body>
+    </function>
+    <function name="sumarArregloReal" type="Real" variable="total">
+        <parameters>
+            <parameter name="arreglo" type="Real" array="True"/>
+        </parameters>
+        <body>
+            <declare name="total" type="Real" array="False" size=""/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <assign variable="total" expression="0"/>
+            <for variable="i" start="0" end="Size(arreglo)-1" direction="inc" step="1">
+                <assign variable="total" expression="total + arreglo[i]"/>
+            </for>
+        </body>
+    </function>
+</flowgorithm>
