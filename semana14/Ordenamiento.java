@@ -29,7 +29,7 @@ public class Ordenamiento {
         long inicio, fin;
 
         System.out.println("Creación del arreglo");
-        int[] datos = new int[100000000];
+        int[] datos = new int[1000000];
         // System.out.println(  Arrays.toString(datos) );
         System.out.println();
 
